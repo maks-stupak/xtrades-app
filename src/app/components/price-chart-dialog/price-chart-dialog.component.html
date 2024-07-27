@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>History Chart</h1>
+
+<div mat-dialog-content>
+  <canvas baseChart
+    [datasets]="lineChartData.datasets"
+    [labels]="lineChartData.labels"
+    [options]="lineChartOptions"
+    [chartType]="lineChartType">
+  </canvas>
+</div>

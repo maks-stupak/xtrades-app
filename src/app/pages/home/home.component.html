@@ -1,0 +1,40 @@
+<button mat-flat-button (click)="openFilterDialog()">Filters</button>
+
+<table mat-table [dataSource]="filteredData$ | async" class="mat-elevation-z8 price-table">
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.symbol }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastPrice">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.lastPrice }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="priceChangePercent">
+    <th mat-header-cell *matHeaderCellDef> Price Change (%) </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.priceChangePercent }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="highPrice">
+    <th mat-header-cell *matHeaderCellDef> High Price </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.highPrice }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lowPrice">
+    <th mat-header-cell *matHeaderCellDef> Low Price </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.lowPrice }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef> Volume </th>
+    <td mat-cell *matCellDef="let stat"> {{ stat.volume }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['symbol', 'lastPrice', 'priceChangePercent', 'highPrice', 'lowPrice', 'volume']"></tr>
+  <tr mat-row 
+    (click)="showPriceChart(row)"
+    class="table-row"
+    *matRowDef="let row; columns: ['symbol', 'lastPrice', 'priceChangePercent', 'highPrice', 'lowPrice', 'volume'];"
+  ></tr>
+</table>

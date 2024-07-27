@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Set Filters</h1>
+<div mat-dialog-content>
+  <form [formGroup]="filterForm">
+    <mat-form-field>
+      <input matInput placeholder="Min Volume" formControlName="minVolume">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Max Volume" formControlName="maxVolume">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Min Price Change (%)" formControlName="minPriceChange">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Max Price Change (%)" formControlName="maxPriceChange">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Min Price" formControlName="minPrice">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Max Price" formControlName="maxPrice">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="filterForm.value">Apply</button>
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+</div>
+
